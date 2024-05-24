@@ -35,9 +35,9 @@ Feature: User navigates to the Dashboard Page
     And User clicks on the "Navigate up" icon
     Then User lands on the Dashboard Page
 
-    Examples:
-      | selection         | subTab     |
-      | Cristiano Ronaldo | SEASON     |
-      | Manchester United | TEAM STATS |
+  Examples:
+    | selection         | subTab     |
+    | Cristiano Ronaldo | SEASON     |
+    | Manchester United | TEAM STATS |
 
 

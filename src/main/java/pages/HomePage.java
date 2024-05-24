@@ -24,7 +24,6 @@ public class HomePage extends BaseClass {
     private By teamHeaderTitle = By.id("com.fivemobile.thescore:id/team_name");
     private By backButton = AppiumBy.accessibilityId("Navigate up");
 
-
     public boolean userIsOnStartScreen() throws Exception {
         Thread.sleep(5000);
         return isElementPresent(scoreImage);
@@ -61,6 +60,13 @@ public class HomePage extends BaseClass {
     public String getLeagueText() {
         return getText(LeagueText);
     }
+    public String getPlayerName(){
+        return getText(playerHeaderTitle);
+    }
+
+    public String getTeamName(){
+        return getText(teamHeaderTitle);
+    }
 
     public void handlePopup() {
         if (isElementPresent(popupDismissIcon)) {
@@ -88,15 +94,6 @@ public class HomePage extends BaseClass {
         click(By.id("com.fivemobile.thescore:id/search_bar_text_view"));
         sendKeys(searchBar, selection);
         click(By.xpath("//android.widget.TextView[contains(@text,'" + selection + "')]"));
-    }
-
-    public void verifyHeaderTitle(String header) {
-        if (header.contains(Constants.playerName)) {
-            getText(playerHeaderTitle);
-        } else if (header.contains(Constants.teamName)) {
-            getText(teamHeaderTitle);
-        }
-
     }
 
     public boolean comparePlayerSubTabs(String selection) {

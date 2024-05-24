@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
+import utils.Constants;
 
 public class HomePageSteps {
 
@@ -77,7 +78,11 @@ public class HomePageSteps {
 
     @Then("User validates the header title of the {string}")
     public void userValidateHeaderTitle(String headerTitle) {
-        homePage.verifyHeaderTitle(headerTitle);
+        if (headerTitle.equalsIgnoreCase(Constants.playerName)){
+            Assert.assertEquals(homePage.getPlayerName(),headerTitle);
+        } else if (headerTitle.equalsIgnoreCase(Constants.teamName)){
+            Assert.assertEquals(homePage.getTeamName(),headerTitle);
+        }
     }
 
     @And("User verifies the sub tabs of the {string}")
